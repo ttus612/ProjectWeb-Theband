@@ -1,0 +1,568 @@
+/*Reset CSS*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+} 
+
+/*
+1. Từ ngoài vào trong 
+2. Từ trên xuống dưới
+3. Tổng quan đến chi tiết
+*/
+
+/*
+1. Vị trí
+2. Kích thước
+3. Màu sắc
+4. Kiểu dáng(kiểu chữ, hình tròn, vuông,...)
+*/
+
+/*Common*/
+.clear{/*phần này để sp phần float left bên dưới*/
+    clear: both;/*khi sử dụng float  thẻ cha sẽ bị co lại không ôm đc các thẻ con, để khắc phục thêm thuộc tính overflow:hidden vào thẻ cha hoặc "clear: " đặt 1 thẻ trống sau đó css là clear:both*/
+}
+
+.text-white{
+    color: #fff !important;
+}
+
+.row{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.col{
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col-third{
+    width: calc(100% / 3);
+}
+
+.col-half{
+    width: calc(100% / 2);
+}
+
+.col-full{
+    width: 100%;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.mt-8{
+    margin-top: 8px !important;
+}
+
+.mt-16{
+    margin-top: 16px !important;
+}
+
+.btn{
+    color: #fff;
+    background-color: #000;
+    text-decoration: none;
+    padding: 11px 16px;
+    display: inline-block;/*vì a là 1 thẻ có thuộc tính display là inline và nó nằm dưới thẻ p có thuộc tính display là block. Nên tính chất của 1 thẻ inline là khi đc padding lên thì khoảng padding nó sẽ không va chạm lên mà nó sẽ nằm chồng lên, để giải quyết ta cho nó là display:inline-block*/
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover{
+    color: #000;
+    cursor: pointer;
+    background-color: #ccc;
+}
+
+.pull-right{
+    float: right !important;
+}
+
+/*Main*/
+#main{
+
+}
+
+/*Header*/
+#header{
+    height: 46.5px;
+    background-color: black;
+    position: fixed;/*khi có position này thi  tính chất kế thừa chiều ngang không còn nữa, chỉ cần thêm top:0, left:0, right: 0 là đc*/
+    top: 0;/*đảm bảo trên mọi trình duyệt*/
+    left: 0;
+    right: 0;
+    z-index: 1;
+    
+}  
+
+#nav{
+    display: inline-block;
+}
+
+#nav li{
+    display: inline-block;
+    position: relative;
+}
+
+#nav > li > a{/*làm như vậy sẽ hông ảnh hưởng đến các thẻ con khác, chỉ làm thay đổi thẻ cha*/
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#nav li a{
+    text-decoration: none;
+    line-height: 46.5px;
+    padding: 0 24px;
+}
+
+#nav li:hover .subnav{
+    display: block;
+}
+
+#nav > li:hover >  a,
+#nav .subnav li:hover a{
+    background-color: #ccc; 
+    color: black;
+}
+
+#nav li:hover a{/*nên để :hover trong thẻ li*/
+    color: #333;/*lấy này kích thước thẻ a chưa bằng với kích thước khối nên là phải thêm thuộc tính để cho nó bằng, ta có thẻ bỏ "a" chỉ thay đổi li hoặc thêm thuộc tính display:block vào là đc*/
+    display: block;
+}
+
+#nav .subnav{
+    display: none;
+    position: absolute;
+    top: 100%;/*luôn thêm top 100/5 và left 0 để chắc chắn, vì nếu không để thì 1 số trình duyệt sẽ bị lệch*/
+    left: 0;
+    background-color: #fff;
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.3) ;
+    min-width: 160px
+}
+
+#nav .subnav a{
+    color: black;
+    padding: 0 16px;
+    line-height: 38.5px;
+}
+
+#nav .subnav li{
+    display: block;/*display: block (làm cho kích thước thẻ đó bằng với thẻ chứa nó) hoặc dùng width: 100%;*/
+
+}
+
+#nav .nav-arrow-down{
+    font-size: 14px;/*mặc định 16px*/
+}
+#header .mobile-menu-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+
+#header .mobile-menu-btn,
+#header .search-button{
+    float: right;
+    padding: 0 21px;
+}
+
+#header .mobile-menu-btn:hover,
+#header .search-button:hover{
+    background-color: #f44336;
+    cursor: pointer;
+}
+
+#header .mobile-menu-btn:hover{
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+#header .mobile-menu-btn:hover .menu-icon{
+    color: #000;
+}
+
+
+#header .menu-icon,
+#header .search-icon{
+    color: #fff;
+    font-size: 20px;
+    line-height: 46.5px;
+}
+
+/*Slider*/
+#slider{
+    position: relative;/*để không bị chiếm 1 khoảng làm tăng kích thước ảnh , ta chỉ cần thêm position: relative , và position: absolute vào để nhất thể điv lên*/
+    margin-top: 46.5px;
+    padding-top: 50%;/*padding-top khi them giá trị phía sau là 50% thì giá trị đó chính là giá trị 50% của chiều ngang của chính nó */
+    /*backgroung-image có thể đổ nền ảnh từ lớp padding*/
+    background: url(../img/slider/slider1.jpg) top center / cover no-repeat;
+}
+
+#slider .text-content{
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 48px;
+}
+
+#slider .text-heading{
+    font-weight: 500;
+    font-size: 24px;
+   
+}
+
+#slider .text-description{
+    font-size: 15px;
+    margin-top: 25px;
+    text-shadow: 0 0 1px #000;
+}
+
+/*Content*/
+#content{
+
+}
+
+#content .content-section{
+    width: 800px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px;
+    
+}
+
+/*About section*/
+#content .content-section .section-heading{
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 4px;
+}
+
+#content .content-section .section-sub-heading{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 15px;
+    font-style: italic;/*chữ nghiêng*/
+    opacity: 0.6;/*độ mờ*/
+}
+
+#content .content-section .about-text{
+    margin-top: 25px;
+    font-size: 15px;
+    text-align: justify;/*căn đều 2 bên */
+    line-height:1.4; /*tạo độ cao giữa các dòng(Tiếng Việt: 1.4, Tiếng anh; 1.6)*/
+}
+
+#content .member-list{
+    margin-top: 48px;
+    margin-bottom: 32px;
+    /* overflow: hidden; *//*khi sử dụng float  thẻ cha sẽ bị co lại không ôm đc các thẻ con, để khắc phục thêm thuộc tính overflow:hidden vào thẻ cha hoặc "clear: " đặt 1 thẻ trống sau đó css là clear:both*/
+}
+
+/* float: left; /*khi sử dụng float  thẻ cha sẽ bị co lại không ôm đc các thẻ con, để khắc phục thêm thuộc tính overflow:hidden vào thẻ cha hoặc "clear: " đặt 1 thẻ trống sau đó css là clear:both*/
+#content .member-name{
+    font-size: 15px;
+}
+
+#content .member-img{
+    width: 154px;
+    border-radius: 4px;
+    margin: 15px 0px;
+}
+
+/*Tour section*/
+.tour-section{
+    background-color:black;
+
+}
+
+/*Tiket*/
+.tiket-list {
+    background-color: #fff;
+    margin-top: 40px;
+}
+
+.tiket-list li{
+    color: #757575;
+    list-style: none;
+    font-size: 15px;
+    padding: 11px 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tiket-list .sold-out{
+    background-color: #f44336;
+    padding: 3px 8px;
+    margin-left: 16px;
+    color: #fff;
+}
+
+.tiket-list .quantity{
+    float: right;
+    width: 24px;
+    height: 24px;  
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 16px;
+    margin-top: -3px; 
+}
+
+/*Place*/
+.place-list{
+    margin-top: 16px;
+}
+
+.place-img{
+    width: 100%;
+    display: block;/*do thẻ img có display inline nên có 1 khoảng hở, nên ta phải đổi lại block*/
+}
+
+.place-body{
+    background-color: #fff;
+    padding: 16px;
+    font-size: 15px;
+}
+
+.place-heading{
+    font-size: 15px;
+    font-weight: 600;
+}
+.place-img:hover{
+    opacity: 0.6;
+}
+
+.place-time{
+    margin-top: 15px;
+    color: #757575;
+}
+
+.place-desc{
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+
+/*Contact form*/
+.contact-content{
+    margin-top: 48px;
+}
+
+.contact-info{
+    font-size: 18px;
+    line-height: 1.5;
+ 
+}
+
+.contact-info a{
+    color: #101aef;
+    opacity: 0.8;
+}
+
+.contact-info a:hover{
+    opacity: 1;
+}
+
+.contact-info i[class*="ti-"]{
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-form{
+    font-size: 15px;
+}
+
+.contact-form .form-control{
+    border: 1px solid #ccc;
+    padding: 8px;
+    width: 100%;
+}
+
+.contact-form .form-submit {
+    border: none;
+    background: black;
+    color: #fff;
+    padding: 8px 16px;
+    float: right;
+}
+
+.icon-contact:before {
+    margin-right:10px;
+}
+/*Map*/
+.map-section img{
+    width: 100%;
+}
+
+/*Footer*/
+#footer{
+    padding: 64px 16px;
+    text-align: center;
+    
+}
+
+#footer .social{
+    font-size: 24px;
+}
+
+#footer .social a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#footer .coppyright a:hover,
+#footer .social a:hover{
+    color: rgba(0, 0, 0, 0.4);
+}
+
+#footer .coppyright{
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 15px;
+}
+
+#footer .coppyright a{
+    color: rgba(0, 0, 0, 0.6);
+
+}
+
+
+
+
+/*Modal*/
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;/*đang tatws*/
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.open{
+    display: flex;
+}
+
+.modal-container {
+    background-color: #fff;
+    width: 70%;
+    display: block;
+    min-height: 200px;
+    position: relative;
+    max-width: calc(100% - 32px);/*reponsive đơn giản*/
+    animation: modalFadeIn ease 0.5s; 
+    margin: 0px 8px;
+}
+
+.modal-header {
+    background-color: #009688;
+    height: 45px;
+    padding: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+.modal-heading-icon{
+    margin-right: 16px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    padding: 11px 12px;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+   opacity: 0.8;
+   background-color: #ccc;
+}
+
+.modal-body{
+   padding: 16px;
+}
+
+.modal-label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.modal-input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    margin-bottom: 25px;
+} 
+ 
+#buy-tickets{
+    background-color: #009688;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 20px;
+    text-transform: uppercase;
+    margin: 16px 0px;
+    font-weight: 16px;
+    font-weight: 500;
+}
+
+#buy-tickets:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    background: #ccc;
+}
+
+.modal-footer {
+    text-align: right;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-footer a{
+    color: #2196F3;
+}
+
+@keyframes modalFadeIn {
+    from{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

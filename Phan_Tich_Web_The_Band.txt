@@ -1,0 +1,11 @@
+PROJECT - The Band
+1.Phân tích:==> OK
+	1. Header==>Xong
+	2. Slider==>Xong
+	3. Content
+		3.1. About
+		3.2. Tour
+		3.3. Contact
+		3.4. Image
+	4. Footer
+2.Dựng base

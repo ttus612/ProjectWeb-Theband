@@ -1,0 +1,130 @@
+/*PC*/
+@media (min-width:64em){
+
+}
+
+/*TABLET & MOBILE */
+@media (max-width:63.9375em){
+
+ 
+}
+
+/*TABLET*/
+@media (min-width:46.25em) and (max-width:63.9375em){
+    .btn{
+        padding: 16px 18px;
+    }
+
+    #nav .subnav a {
+        padding: 5px 16px;
+    }
+
+    .contact-form .form-control {
+        padding: 13px;  
+    }
+
+    .contact-info {
+        line-height: 2;
+    }
+
+    #footer .social {
+      font-size: 48px;
+    }
+
+    #footer .social a {
+        margin: 0 8px;
+    }
+    
+    #footer .coppyright a {
+        padding: 21px 0;
+        display:inline-block;
+    }
+}
+
+/*MOBILE*/
+@media (max-width:46.1875em){
+    .s-col-full{
+        width: 100%;
+    }
+
+    .s-mt-8{
+        margin-top:8px !important;
+    }
+
+    .s-full-width{
+        width: 100%;
+    }
+
+    #header{
+        overflow: hidden;/*ẩn đi các đối tượng vượt qua cha*/
+    }
+
+    #header .mobile-menu-btn{
+        display: block;
+    }
+    
+    #header .search-button {
+        display: none;
+    }
+
+    #nav {
+        display: block;
+    }
+
+    #nav > li{
+        display: block;
+    }
+
+    #nav li a{
+        padding: 5px 16px;
+    }
+
+    #nav > li:first-child{/*li là con trực tiếp của thẻ nav*/
+        display: inline-block;
+    }
+
+    #nav .subnav {
+        position: initial;
+        background-color: #333;
+    }
+
+    #nav .subnav a{
+        padding: 5px 41px;    
+    }
+
+    #nav li:hover a {
+        color: #fff;
+    }
+
+    #slider .text-heading {
+        font-weight: 500;
+        font-size: 30px;
+    }
+
+    #slider .text-description {
+        font-size: 10px;
+        margin-top: 18px;
+    }
+
+    #content .member-item-mobile{
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    #content .member-img{
+        width: 60%;
+        margin-top: 15px;
+    }
+ 
+    .contact-form{
+        padding-top: 16px;
+    }
+
+    .contact-info {
+        line-height: 2.1;
+    }
+    
+    .contact-submit-btn{
+        font-size: 18px;
+    }
+}
